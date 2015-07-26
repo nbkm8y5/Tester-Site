@@ -118,7 +118,7 @@ if (isset($_POST)) {
                 <h4>
                     <a href="activation.php?id=<?php echo $id ?>">Click here to activate</a>
                 </h4>
-
+                <h4><a href="source_code_tester.php">Source Code Test Page</a></h4>
             </div>
         </div>
 
