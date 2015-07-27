@@ -33,7 +33,7 @@ $connect->selectDatabase();
         <div class="container text-center" id="form_manipulation">
             <div class="col-md-offset-4 col-md-4">
                 <h1>Test Form</h1>
-                <form method="post" action="source_code_tester.php">
+                <form method="post">
                     <div class="form-group">
                         <label for="a">Operand: A</label>
                         <input class="form-control" id="a" name="a">
@@ -43,7 +43,7 @@ $connect->selectDatabase();
                         <input class="form-control" id="b" name="b">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-default" type="submit">Multiply</button>
+                        <button class="btn btn-default" type="submit" onclick="multiplier();">Multiply</button>
                     </div>
                 </form>
             </div>
@@ -51,26 +51,35 @@ $connect->selectDatabase();
 
         <div class="container text-center" id="DOM_manipulation">
             <div class="col-md-offset-4 col-md-4"></div>
+            <h6>DOCUMENT WRITE TEST</h6>
             <div id="document_write">
-                <h2><script>document.write("DOCUMENT WRITE TEST");</script></h2>
+                <h2>
+                    <script>
+                        a = "DOCUMENT WRITE TEST";
+                        b = " IS WORKING";
+                        document.write(a + b);
+                    </script>
+                </h2>
             </div>
 
             <div>
+                <h6>SOURCE TEST</h6>
                 <h2 id="source">GET ELEMENT BY ID TEST</h2>
             </div>
-
-            <script>
-                var a = document.getElementById("source");
-                document.getElementById("destination").innerHTML = a;
-            </script>
-
             <div>
+                <h6>DESTINATION TEST</h6>
                 <h2 id="destination"></h2>
+
+            </div>
+            <div>
+                <h6>DOCUMENT WRITE FROM FILE TEST</h6>
+                <h2 id="java">
+                </h2>
+                <script>
+                    op = new Operations();
+                </script>
             </div>
         </div>
-
-
-
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -78,5 +87,11 @@ $connect->selectDatabase();
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script>
+                    var sourceObject = document.getElementById('source'); //THIS PASSES THE OBJECT
+                    var source = sourceObject.innerHTML;//THIS GETS THE TEXT FROM THE OBJECT
+                    document.getElementById('destination').innerHTML = source;//THIS SENDS THE ELEMENT TO THE ID DESTINATION
+        </script>
+        <script src="js/source_code.js"></script>
     </body>
 </html>

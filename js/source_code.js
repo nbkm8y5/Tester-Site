@@ -1,21 +1,33 @@
-function writeViaInnerHTML()
+function Operations()
 {
-    document.getElementById("java").innerHTML = "THIS IS A NEW TEST";
+
+    var aObject = document.getElementById('a');
+    var operandA = aObject.innerHTML;
+    var bObject = document.getElementById('b');
+    var operandB = bObject.innerHTML;
+    var c = multiplier(operandA, operandB);
+    document.getElementById('product').innerHTML = c;
+
+    function writeViaInnerHTML()
+    {
+        document.getElementById("java").innerHTML = "THIS CAME FROM THE WRITE VIA INNER HTML FUNCTION";
+    }
+
+    function writeViaDocumentWrite()
+    {
+        document.write("Hello World");
+    }
+
+    function multiplier(a, b)
+    {
+        return a * b;
+    }
 }
 
-function multiply() {
-    var a = document.getElementById('a');
-    var b = document.getElementById('b');
-    var c = Multiplier(5, 4);
-    document.write(c);
-}
 
-function Multiplier(a, b) {
-    return a * b;
 
-}
 
-function writeViaDocumentWrite()
-{
-    document.write("Hello World");
-}
+
+
+
+
