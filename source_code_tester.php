@@ -6,6 +6,8 @@ $connect->setLink();
 $connect->getLink();
 $connect->selectDatabase();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,6 +34,7 @@ $connect->selectDatabase();
 
         <div class="container text-center" id="form_manipulation">
             <div class="col-md-offset-4 col-md-4">
+                <img class="img-responsive" src="images/MPS final logo-01.svg" alt="MPS Logo">
                 <h1>Test Form</h1>
                 <form method="post">
                     <div class="form-group">
@@ -78,6 +81,13 @@ $connect->selectDatabase();
                 <script>
                     op = new Operations();
                 </script>
+                <h2>ENCRYPTED PASSWORD</h2>
+                <h2><?php
+                    $testString = 'Rolando Moreno';
+                    $result = md5($testString);
+                    echo $result . "\r\n";
+                    ?></h2>
+
             </div>
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
