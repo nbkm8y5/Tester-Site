@@ -7,7 +7,7 @@ $connect->getLink();
 $connect->selectDatabase();
 
 
-$username = $_POST['username'];
+$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
 $country = $_POST['country'];
 $state = $_POST['state'];
 $city = $_POST['city'];

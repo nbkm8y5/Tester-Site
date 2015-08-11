@@ -2,9 +2,8 @@
 require_once 'php/DatabaseConnection.php';
 
 $connect = new DatabaseConnector();
-$connect->setLink();
-$connect->getLink();
-$connect->selectDatabase();
+$connect->connect();
+
 ?>
 
 
@@ -21,6 +20,7 @@ $connect->selectDatabase();
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,7 +35,7 @@ $connect->selectDatabase();
         <div class="container text-center" id="form_manipulation">
             <div class="col-md-offset-4 col-md-4">
                 <img class="img-responsive" src="images/MPS final logo-01.svg" alt="MPS Logo">
-                <h1>Test Form</h1>
+                <h2>$_POST Tester</h2>
                 <form method="post">
                     <div class="form-group">
                         <label for="a">Operand: A</label>
@@ -46,7 +46,7 @@ $connect->selectDatabase();
                         <input class="form-control" id="b" name="b">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-default" type="submit" onclick="multiplier();">Multiply</button>
+                        <button class="btn btn-default">Submit</button>
                     </div>
                 </form>
             </div>
@@ -54,40 +54,90 @@ $connect->selectDatabase();
 
         <div class="container text-center" id="DOM_manipulation">
             <div class="col-md-offset-4 col-md-4"></div>
-            <h6>DOCUMENT WRITE TEST</h6>
+            <h2>Document Write Test</h2>
             <div id="document_write">
-                <h2>
+                <h6>
                     <script>
                         a = "DOCUMENT WRITE TEST";
                         b = " IS WORKING";
                         document.write(a + b);
                     </script>
-                </h2>
+                </h6>
             </div>
 
             <div>
-                <h6>SOURCE TEST</h6>
-                <h2 id="source">GET ELEMENT BY ID TEST</h2>
+                <h2>Source Test</h2>
+                <h6 id="source">GET ELEMENT BY ID TESTED CORRECTLY</h6>
             </div>
             <div>
-                <h6>DESTINATION TEST</h6>
-                <h2 id="destination"></h2>
+                <h2>Destination Test</h2>   
+                <h6 id="destination"></h6>
 
             </div>
             <div>
-                <h6>DOCUMENT WRITE FROM FILE TEST</h6>
-                <h2 id="java">
-                </h2>
-                <script>
-                    op = new Operations();
-                </script>
-                <h2>ENCRYPTED PASSWORD</h2>
-                <h2><?php
+                <h2>Document write from file test</h2>
+                <h6 id="java">
+                </h6>
+            </div>
+            <div>
+                <h2>Encrypted password test</h2>
+                <h6><?php
                     $testString = 'Rolando Moreno';
-                    $result = md5($testString);
+                    $salt1 = '12%#@#';
+                    $salt2 = 'f34@#!';
+                    $result = hash('ripemd128', '$salt1$testString$salt2');
                     echo $result . "\r\n";
-                    ?></h2>
+                    ?></h6>
+            </div>
+            <div class="col-md-offset-5 col-md-2">
+                <h2>Multiplier</h2>
+                <div class="form-group">
+                    <input class="form-control" id="multA">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="multB">
 
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-danger" onclick="multiplier()">Click for multiplier</button> 
+                </div>
+                <div id="errorText"></div>
+                <label for="product">Answer:</label>
+                <div id="product" class="form-group"></div>
+                <script>
+                    function multiplier() {
+                        var text;
+                        var product;
+                        var operandA = document.getElementById('multA').value;
+                        var operandB = document.getElementById('multB').value;
+
+                        if (operandA == null || operandA < 0 || operandA > 100 || operandB == null || operandB < 0 || operandB > 100)
+                        {
+                            text = "ERROR: Please enter a number between 0 and 100.";
+                            product = "Not valid";
+                        }
+                        else {
+                            product = operandA * operandB;
+                            text = "";
+                        }
+                        document.getElementById('errorText').innerHTML = text;
+                        document.getElementById('product').innerHTML = product;
+                    }
+                </script>
+            </div>
+            <div class="col-md-offset-2 col-md-8">
+                <h2>Font Size Test</h2>
+                <div id="fontTest" class="form-group">
+                    TEXT BEING TESTED
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" onclick="changeFont()">Change font</button>
+                </div>
+                <script>
+                    function changeFont() {
+                        document.getElementById('fontTest').style.fontSize = "64px";
+                    }
+                </script>
             </div>
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -98,9 +148,9 @@ $connect->selectDatabase();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-                    var sourceObject = document.getElementById('source'); //THIS PASSES THE OBJECT
-                    var source = sourceObject.innerHTML;//THIS GETS THE TEXT FROM THE OBJECT
-                    document.getElementById('destination').innerHTML = source;//THIS SENDS THE ELEMENT TO THE ID DESTINATION
+                    var sourceObject = document.getElementById('source').innerHTML; //THIS PASSES THE OBJECT
+//                    var source = sourceObject.innerHTML;//THIS GETS THE TEXT FROM THE OBJECT
+                    document.getElementById('destination').innerHTML = sourceObject;//THIS SENDS THE ELEMENT TO THE ID DESTINATION
         </script>
         <script src="js/source_code.js"></script>
     </body>

@@ -1,0 +1,7 @@
+#fontTest{
+    -webkit-transition: all .85s ease-in;
+-moz-transition: all .85s ease-in;
+-ms-transition: all .85s ease-in;
+-o-transition: all .85s ease-in;
+transition: all .85s ease-in;
+}
