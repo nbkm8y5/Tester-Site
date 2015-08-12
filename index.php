@@ -2,9 +2,7 @@
 require_once 'php/DatabaseConnection.php';
 
 $connect = new DatabaseConnector();
-$connect->setLink();
-$connect->getLink();
-$connect->selectDatabase();
+$connect->connect();
 
 
 $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -19,12 +17,11 @@ $hashedPass = md5($password);
 
 if (isset($_POST)) {
 
-    $sql = "INSERT INTO members (username, country, state, city, accounttype, email, password, signupdate)
-		VALUES('$username','$country','$state','$city','$accounttype','$email','$hashedPass', now())";
+    $sql = "INSERT INTO members VALUES('$username','$country','$state','$city','$accounttype','$email','$hashedPass', now())";
 
-    mysql_query($sql);
+    $connect->getConnection()->query($sql);
 
-    $id = mysql_insert_id();
+    $id = $connect->insert_id;
 }
 ?>
 <!DOCTYPE html>

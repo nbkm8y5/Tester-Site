@@ -3,7 +3,6 @@ require_once 'php/DatabaseConnection.php';
 
 $connect = new DatabaseConnector();
 $connect->connect();
-
 ?>
 
 
@@ -52,42 +51,46 @@ $connect->connect();
             </div>
         </div>
 
-        <div class="container text-center" id="DOM_manipulation">
-            <div class="col-md-offset-4 col-md-4"></div>
-            <h2>Document Write Test</h2>
-            <div id="document_write">
-                <h6>
-                    <script>
-                        a = "DOCUMENT WRITE TEST";
-                        b = " IS WORKING";
-                        document.write(a + b);
-                    </script>
-                </h6>
-            </div>
+        <div class="container text-center">
+            <div class="col-md-offset-4 col-md-4">
+                <h2>Document Write Test</h2>
+                <div id="document_write">
+                    <h6>
+                        <script>
+                            a = "DOCUMENT WRITE TEST";
+                            b = " IS WORKING";
+                            document.write(a + b);
+                        </script>
+                    </h6>
+                </div>
 
-            <div>
-                <h2>Source Test</h2>
-                <h6 id="source">GET ELEMENT BY ID TESTED CORRECTLY</h6>
-            </div>
-            <div>
-                <h2>Destination Test</h2>   
-                <h6 id="destination"></h6>
+                <div>
+                    <h2>Source Test</h2>
+                    <h6 id="source">GET ELEMENT BY ID TESTED CORRECTLY</h6>
+                </div>
+                <div>
+                    <h2>Destination Test</h2>   
+                    <h6 id="destination"></h6>
 
-            </div>
-            <div>
-                <h2>Document write from file test</h2>
-                <h6 id="java">
-                </h6>
-            </div>
-            <div>
-                <h2>Encrypted password test</h2>
-                <h6><?php
-                    $testString = 'Rolando Moreno';
-                    $salt1 = '12%#@#';
-                    $salt2 = 'f34@#!';
-                    $result = hash('ripemd128', '$salt1$testString$salt2');
-                    echo $result . "\r\n";
-                    ?></h6>
+                </div>
+
+                <div>
+                    <h2>Document write from file test</h2>
+                    <h6 id="java">
+                    </h6>
+                    <button class="btn btn-success" onclick="writeViaInnerHTML()">Click for text from other file</button>
+                </div>
+
+                <div>
+                    <h2>Encrypted password test</h2>
+                    <h6><?php
+                        $testString = 'Rolando Moreno';
+                        $salt1 = '12%#@#';
+                        $salt2 = 'f34@#!';
+                        $result = hash('ripemd128', '$salt1$testString$salt2');
+                        echo $result . "\r\n";
+                        ?></h6>
+                </div>
             </div>
             <div class="col-md-offset-5 col-md-2">
                 <h2>Multiplier</h2>
@@ -96,7 +99,6 @@ $connect->connect();
                 </div>
                 <div class="form-group">
                     <input class="form-control" id="multB">
-
                 </div>
                 <div class="form-group">
                     <button class="btn btn-danger" onclick="multiplier()">Click for multiplier</button> 
@@ -104,27 +106,8 @@ $connect->connect();
                 <div id="errorText"></div>
                 <label for="product">Answer:</label>
                 <div id="product" class="form-group"></div>
-                <script>
-                    function multiplier() {
-                        var text;
-                        var product;
-                        var operandA = document.getElementById('multA').value;
-                        var operandB = document.getElementById('multB').value;
-
-                        if (operandA == null || operandA < 0 || operandA > 100 || operandB == null || operandB < 0 || operandB > 100)
-                        {
-                            text = "ERROR: Please enter a number between 0 and 100.";
-                            product = "Not valid";
-                        }
-                        else {
-                            product = operandA * operandB;
-                            text = "";
-                        }
-                        document.getElementById('errorText').innerHTML = text;
-                        document.getElementById('product').innerHTML = product;
-                    }
-                </script>
             </div>
+
             <div class="col-md-offset-2 col-md-8">
                 <h2>Font Size Test</h2>
                 <div id="fontTest" class="form-group">
@@ -133,12 +116,22 @@ $connect->connect();
                 <div class="form-group">
                     <button class="btn btn-primary" onclick="changeFont()">Change font</button>
                 </div>
-                <script>
-                    function changeFont() {
-                        document.getElementById('fontTest').style.fontSize = "64px";
-                    }
-                </script>
             </div>
+
+            <div class="col-md-offset-4 col-md-4">
+                <h2>Window Alert Test</h2>
+
+                <div class="form-group">
+                    <input class="form-control" id="addA">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="addB">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" onclick="sum()">Sum!</button>
+                </div>
+            </div>
+
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -148,9 +141,9 @@ $connect->connect();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-                    var sourceObject = document.getElementById('source').innerHTML; //THIS PASSES THE OBJECT
+                        var sourceObject = document.getElementById('source').innerHTML; //THIS PASSES THE OBJECT
 //                    var source = sourceObject.innerHTML;//THIS GETS THE TEXT FROM THE OBJECT
-                    document.getElementById('destination').innerHTML = sourceObject;//THIS SENDS THE ELEMENT TO THE ID DESTINATION
+                        document.getElementById('destination').innerHTML = sourceObject;//THIS SENDS THE ELEMENT TO THE ID DESTINATION
         </script>
         <script src="js/source_code.js"></script>
     </body>
