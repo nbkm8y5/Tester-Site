@@ -117,6 +117,8 @@ if (isset($_POST)) {
                 </h4>
                 <h4><a href="source_code_tester.php">Source Code Test Page</a></h4>
                 <h4><a href="php/php_info.php">PHP Info Page</a></h4>
+                <h4><a href="php/captcha_tester.php">Captcha Tester</a></h4>
+                <h4><a href="form_tester.php">Javascript Input Validation</a></h4>
             </div>
         </div>
 
