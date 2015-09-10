@@ -50,7 +50,7 @@ if (isset($_POST)) {
         <div class="container text-center">
             <div class="col-md-6">
                 <h1>User Authentication Tester</h1>
-                <form action="index.php" method="post" enctype="multipart/form-data">
+                <form action="index.php enctype="multipart/form-data">
                     <h6><?php echo "$errorMsg"; ?></h6>
 
                     <div class="form-group">
@@ -119,6 +119,7 @@ if (isset($_POST)) {
                 <h4><a href="php/php_info.php">PHP Info Page</a></h4>
                 <h4><a href="php/captcha_tester.php">Captcha Tester</a></h4>
                 <h4><a href="form_tester.php">Javascript Input Validation</a></h4>
+                <h4><a href="html_five_tester.php">HTML 5 Tester</a></h4>
             </div>
         </div>
 

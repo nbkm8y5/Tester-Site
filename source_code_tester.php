@@ -31,14 +31,25 @@ $connect->connect();
 
 <div class="container text-center" id="form_manipulation">
     <div class="col-md-offset-4 col-md-4">
-        <img class="img-responsive" src="images/MPS final logo-01.svg" alt="MPS Logo">
+        <img id="mps_logo" class="img-responsive" src="images/MPS final logo-01.svg" onmouseover="changeImage()" onmouseout="changeBack()" alt="MPS Logo">
+        <script>
 
+            var x = document.getElementById('mps_logo');
+
+            function changeImage()
+            {
+                x.src = "images/Marker.svg";
+            }
+            function changeBack(){
+                x.src = "images/MPS final logo-01.svg";
+            }
+        </script>
         <h2>$_POST Tester</h2>
 
         <form method="post">
             <div class="form-group">
                 <label for="a">Operand: A</label>
-                <input class="form-control" id="a" name="a" onchange="operandValidation()">
+                <input class="form-control" id="a" name="a"  onchange="operandValidation()">
                 <h6 id="operandAError" style="color: red"></h6>
 
             </div>
@@ -137,6 +148,7 @@ $connect->connect();
         <div class="form-group">
             <button class="btn btn-primary" onclick="sum()">Sum!</button>
         </div>
+        <div id="sum" class="form-group"></div>
     </div>
 
     <div class="col-md-offset-4 col-md-4">
@@ -165,7 +177,6 @@ $connect->connect();
         <h6 id="jsonTester">
             <script>
                 //A common use of JSON is to read data from a web server, and display the data in a web page.
-                var output = document.getElementById("jsonTester");
 
                 var jsonText = '{ "employees" : [' +
                     '{ "firstName":"John" , "lastName":"Doe" },' +
@@ -175,9 +186,20 @@ $connect->connect();
                 //Now create in into a javascript object
 
                 var jsonObject = JSON.parse(jsonText);
-                 output.innerHTML = jsonObject.employees[1].firstName + " " + jsonObject.employees[1].lastName
-                     + " " + jsonObject.employees[0].firstName + " " + jsonObject.employees[0].lastName
-                 + " " + jsonObject.employees[2].firstName + " " + jsonObject.employees[2].lastName;
+
+                //                var i;
+                //
+                //                for (i = 0; i < jsonObject.length; i++) {
+                //                    output += jsonObject.employees[i].firstName.value + " " + jsonObject.employees[i].lastName.value + "<br>";
+                //                }
+                var output = document.getElementById("jsonTester");
+                output.innerHTML = jsonObject.employees[1].firstName + " " + jsonObject.employees[1].lastName + "<br>"
+                    + " " + jsonObject.employees[0].firstName + " " + jsonObject.employees[0].lastName  + "<br>"
+                    + " " + jsonObject.employees[2].firstName + " " + jsonObject.employees[2].lastName;
+            </script>
+            <br>
+            <script>
+                document.write(Date());
             </script>
         </h6>
         <h6>&copy <?php echo date("Y") ?> Rolando Moreno</h6>
