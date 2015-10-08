@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JQuery Tester</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jquery.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<section id="main_section">
+<div id="slide_show"></div>
+    <div id="slide_show_form" class="container">
+        <div class="col-md-offset-4 col-md-4 text-center" id="form_box">
+            <h1>Javascript Input Validation Tester</h1>
+
+            <form>
+                <div class="form-group">
+                    <label for="userName">User Name</label>
+                    <input type="text" class="form-control" id="userName" name="user_name" placeholder="Enter user name"
+                           value="" required onchange="">
+                    <h6 id="userNameResponse"></h6>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="first_name" placeholder="Enter first name"
+                           value="" required>
+                    <h6 id="firstNameResponse"></h6>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Enter last name"
+                           value="" required>
+                    <h6 id="lastNameResponse"></h6>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email address please"
+                           value="" required>
+                    <h6 id="emailResponse"></h6>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                           value="" required>
+                    <h6 id="passwordResponse"></h6>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="reset" class="btn btn-warning">Reset</button>
+            </form>
+            <h1>This is a test! to see if this gets hidden.</h1>
+            <h2>This is a test with jquery in another file.</h2>
+            <img class="img-responsive" src="images/Marker.svg" alt="marker">
+            <h2 id="h5_id_test">This is a test to hide based on id.</h2>
+            <h2 class="h5_class_test">This is a test to hide based on class.</h2>
+        </div>
+    </div>
+</section>
+</body>
+</html>

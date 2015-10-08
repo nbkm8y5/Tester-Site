@@ -120,6 +120,7 @@ if (isset($_POST)) {
                 <h4><a href="php/captcha_tester.php">Captcha Tester</a></h4>
                 <h4><a href="form_tester.php">Javascript Input Validation</a></h4>
                 <h4><a href="html_five_tester.php">HTML 5 Tester</a></h4>
+                <h4><a href="jquery_tester.html">Jquery Tester</a></h4>
             </div>
         </div>
 

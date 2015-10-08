@@ -1,0 +1,32 @@
+#main_section{
+    position: relative;
+}
+
+#slide_show {
+    background: url("../images/Hong_Kong_Night_Skyline-reduced.jpg"), url("../images/new_york_skyline-wide.jpg") no-repeat fixed;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 1000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#slide_show_form {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+
+
+#form_box {
+    color: #f9f9f9;
+    background-color: rgba(0,0,0,0.5);
+}
